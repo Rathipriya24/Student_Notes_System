@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notes Sharing System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h1>Student Notes Sharing System</h1>
+        <h2>Student Login</h2>
+
+        <form method="POST" action="/login">
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">🔐 Login</button>
+
+        </form>
+
+        <p>New student? <a href="/register">📝 Register here</a></p>
+
+    </div>
+
+</body>
+</html>

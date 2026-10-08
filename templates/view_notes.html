@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="notes-container">
+
+    <h1>📚 Student Notes Sharing System</h1>
+
+    <h2>📖 Available Notes</h2>
+
+    {% if notes %}
+
+    <table>
+        <tr>
+            <th>Note Title</th>
+            <th>Subject</th>
+            <th>Semester</th>
+            <th>Uploaded By</th>
+            <th>Action</th>
+        </tr>
+
+        {% for note in notes %}
+        <tr>
+            <td>{{ note.title }}</td>
+            <td>{{ note.subject }}</td>
+            <td>{{ note.semester }}</td>
+            <td>{{ note.uploaded_by }}</td>
+            <td>
+                <a href="/download/{{ note.filename }}">📥 Download</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <p>No notes available yet.</p>
+
+    {% endif %}
+
+    <a class="back-link" href="/dashboard">
+        ⬅ Back to Dashboard
+    </a>
+
+</div>
+    
+
+</body>
+</html>
